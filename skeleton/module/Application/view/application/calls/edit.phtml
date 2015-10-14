@@ -1,0 +1,16 @@
+<div class="jumbotron">
+    <?php
+    $title = 'Edit call';
+    $this->headTitle($title);
+    ?>
+    <h1 class="text-center"><?= $this->escapeHtml($title); ?></h1>
+    <div class="row col-lg-offset-10">
+        <a class="btn btn-success" href="<?= $this->url('customer', array('action' => 'info', 'id' => (int)$customerId)) ?>">
+            Back to calls list
+        </a>
+    </div>
+    <label>
+        <span class="zdt-toolbar-color-red response-input"></span>
+    </label>
+    <?php echo $this->render('layout/form-calls'); ?>
+</div>

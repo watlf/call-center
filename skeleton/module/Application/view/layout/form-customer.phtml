@@ -1,0 +1,14 @@
+<?php
+$form = $this->form;
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formHidden($form->get('action'));
+echo $this->formRow($form->get('firstName'));
+echo $this->formRow($form->get('lastName'));
+echo $this->formRow($form->get('phone'));
+echo $this->formRow($form->get('address'));
+echo $this->formRow($form->get('status'));
+echo $this->formRow($form->get('button'));
+echo $this->form()->closeTag();

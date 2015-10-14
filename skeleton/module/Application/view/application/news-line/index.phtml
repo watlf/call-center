@@ -1,0 +1,31 @@
+<div class="jumbotron">
+    <?php
+    $title = 'News line';
+    $this->headTitle($title);
+    ?>
+    <h1 class="text-center"><?= $this->translate($title) ?></h1>
+    <span class="zdt-toolbar-color-red"><?= isset($error) ? $error : '' ?></span>
+    <?php if (isset($newsline)): ?>
+        <?php foreach ($newsline as $numArticle => $article): ?>
+            <div class="row" style="border-bottom: 1px solid snow">
+                <div id="article-<?= (int)$numArticle ?>"
+                    <h3>
+                        <a href="<?= $this->escapeHtml($article['link']) ?>">
+                            <?= $this->escapeHtml($article['title']) ?>
+                        </a>
+                    </h3>
+                    <p class="pubDate">
+                        <?= $this->escapeHtml($article['pubDate']) ?>
+                    </p>
+                    <p class="pubDescription">
+                        <?= $this->escapeHtml($article['description']) ?>
+                    </p>
+                </div>
+            </div>
+            <div style="float: right">
+                <input type="button" class="btn btn-success" onclick="printArticle(<?= (int)$numArticle ?>)" value="Print article">
+            </div>
+            <hr class="span12">
+        <?php endforeach ?>
+    <?php endif ?>
+</div>

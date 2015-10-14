@@ -1,0 +1,12 @@
+<?php
+$form = $this->form;
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('callId'));
+echo $this->formHidden($form->get('customerId'));
+echo $this->formHidden($form->get('action'));
+echo $this->formRow($form->get('subject'));
+echo $this->formRow($form->get('content'));
+echo $this->formRow($form->get('button'));
+echo $this->form()->closeTag();

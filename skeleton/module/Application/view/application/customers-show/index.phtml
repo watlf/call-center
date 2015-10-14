@@ -1,0 +1,45 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#listCustomers").jqGrid({
+            url:'customers-show/index',
+            datatype: 'json',
+            height: "auto",
+            mtype: 'POST',
+            treeGridModel: 'nested',
+            colNames:['#', 'First Name', 'Last Name', 'Address', 'Phone', 'Status'],
+            colModel :[
+                {name:'id', index:'id', width:50}
+                ,{name:'firstName', index:'firstName', width:200, align:'left', sortable: true}
+                ,{name:'lastName' , index:'lastName' , width:200, align:'left', sortable: true}
+                ,{name:'address'  , index:'address'  , width:200, align:'left', sortable: true}
+                ,{name:'phone'    , index:'phone'    , width:200, align:'left', sortable: true}
+                ,{name:'status'   , index:'status'   , width:200, align:'left', sortable: true}
+            ],
+            pager: '#pagerCustomers',
+            rowNum: 5,
+            rowList: [5, 10, 20],
+            sortname: "id",
+            sortorder: "desc",
+            viewrecords: true,
+            gridview: true,
+            autoencode: true
+        });
+
+        $('.ui-icon-seek-next').html('>');
+        $('.ui-icon-seek-prev').html('<');
+    });
+
+
+</script>
+<div class="jumbotron">
+    <?php
+    $title = 'Show table customers';
+    $this->headTitle($title);
+    ?>
+    <h1 class="text-center"><?= $this->translate($title) ?></h1>
+    <div class="row">
+        <table id="listCustomers"></table>
+        <div id="pagerCustomers"></div>
+    </div>
+</div>
+

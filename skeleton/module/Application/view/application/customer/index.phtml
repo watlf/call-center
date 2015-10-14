@@ -1,0 +1,42 @@
+<div class="jumbotron">
+    <?php
+        $title = 'Manage customers and their calls';
+        $this->headTitle($title);
+    ?>
+    <h1 class="text-center"><?= $this->translate($title) ?></h1>
+    <div class="row col-lg-offset-10" style="margin-bottom: 20px">
+        <a class="btn btn-success" href="<?= $this->url('customer',array('action'=>'add')) ?>">
+            Add new Customer
+        </a>
+    </div>
+    <div class="row">
+        <?php if (!empty($customers)):?>
+            <table class="table reference notranslate">
+                <tr>
+                    <th>Name</th>
+                    <th>Last name</th>
+                    <th>Phone</th>
+                    <th>Show Calls</th>
+                    <th>Edit Customer</th>
+                </tr>
+                <?php foreach ($customers as $customer): ?>
+                    <tr>
+                        <td><?= $this->escapeHtml($customer['firstName']) ?></td>
+                        <td><?= $this->escapeHtml($customer['lastName']) ?></td>
+                        <td><?= $this->escapeHtml($customer['phone']) ?></td>
+                        <td>
+                            <a class="btn btn-info" href="<?= $this->url('customer',array('action'=>'info', 'id' => (int)$customer['id'])) ?>">
+                                Show Calls
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" href="<?= $this->url('customer',array('action'=>'edit', 'id' => (int)$customer['id'])) ?>">
+                                Edit Customer
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+        <?php endif ?>
+    </div>
+</div>
